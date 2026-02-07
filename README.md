@@ -105,6 +105,9 @@ The dashboard refreshes automatically every second.
 - No write or control endpoints are exposed.
 - No sensitive system information is accessible through the web interface.
 
+**This repository is not provided as an App Lab–importable ZIP.**
+**The files are intended to be copied into a manually created Arduino App Lab project.**
+
 ---
 
 ## Screenshots
