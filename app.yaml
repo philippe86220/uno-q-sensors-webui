@@ -1,6 +1,0 @@
-name: "UNO Q – Sensors WebUI "
-description: ""
-ports: []
-bricks:
-- arduino:web_ui: {}
-icon: 😀
