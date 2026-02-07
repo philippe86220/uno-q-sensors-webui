@@ -39,6 +39,9 @@ This project demonstrates how to build a lightweight, readable, and reliable sen
 With recent versions of **Arduino_Modulino** (e.g. **0.7.0**), installing this single library is usually enough.
 Older setups often required extra dependency libraries, but this is no longer necessary in the current Modulino library releases.
 
+Dependency handling may also vary depending on the Arduino App Lab version used.
+
+
 ---
 
 ## Software Architecture
