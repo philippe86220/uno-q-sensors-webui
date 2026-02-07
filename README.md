@@ -1,3 +1,7 @@
+![GitHub license](https://img.shields.io/badge/license-MIT-green)
+![Arduino UNO Q](https://img.shields.io/badge/platform-UNO_Q-blue)
+
+
 # UNO Q – Sensors WebUI Dashboard
 
 A simple and clean web dashboard for the Arduino UNO Q using Modulino sensors and the official Arduino WebUI brick.
