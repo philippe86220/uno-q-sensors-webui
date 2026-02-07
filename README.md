@@ -100,6 +100,14 @@ The dashboard refreshes automatically every second.
 
 ---
 
+## screenshots
+![Serveur](/docs/screenshots/IMG-2.jpg)
+![Montage](/docs/screenshots/IMG.jpg)
+
+
+
+---
+
 ## Acknowledgements
 
 This project was developed with the assistance of ChatGPT,
