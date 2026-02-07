@@ -28,6 +28,15 @@ This project demonstrates how to build a lightweight, readable, and reliable sen
 
 ---
 
+## Requirements
+
+- Arduino UNO Q
+- Arduino App Lab (UNO Q)
+- WebUI brick (HTML)
+- Arduino library: Arduino_Modulino (current version, e.g. 0.7.0)
+
+---
+
 ## Software Architecture
 
 STM32 (sensors)
@@ -37,19 +46,28 @@ STM32 (sensors)
 
 ---
 
-## Installation
+## Installation and Run (Arduino App Lab)
 
-### STM32 firmware
+Arduino App Lab uses a fixed project structure with separate folders
+for the STM32 sketch, the Python application, and WebUI assets.
 
-Flash the STM32 sketch that reads the Modulino sensors and sends data to Linux via Bridge.
+1. In Arduino App Lab, open **Sketch Libraries** and install the
+   **Arduino_Modulino** library (current version, e.g. 0.7.0).
+2. Copy the content of `sketch/sketch.ino` from the repository
+   into the App Lab sketch file.
+3. Copy the content of `python/main.py` from the repository
+   into the App Lab Python file.
+4. Create an `assets/` directory in the App Lab file tree.
+5. Create a new file named `index.html` inside the `assets/` directory.
+6. Copy the content of `assets/index.html` from the repository
+   into the App Lab `assets/index.html` file.
+7. Make sure the **WebUI – HTML** brick is added to the project.
+8. Click **Run** in Arduino App Lab.
 
-### Python application (UNO Q)
+Arduino App Lab handles the internal compilation, deployment, and startup
+of the STM32 sketch, the Python application, the libraries, and the WebUI automatically.
 
-Copy the Python application into the UNO Q application directory.
-
-The WebUI automatically serves the content of the `assets/` directory.
-
-Once started, the web interface is available at:
+Once running, the WebUI is available at:
 
 http://<UNO_Q_IP>:7000
 
