@@ -110,7 +110,7 @@ The dashboard refreshes automatically every second.
 ## Screenshots
 ![Serveur](/docs/screenshots/IMG-2.jpg)
 ![Montage](/docs/screenshots/IMG.jpg)
-![Dashboard](screenshots/dashboard.jpg)
+![Dashboard](/docs/screenshots/dashboard.jpg)
 
 
 
