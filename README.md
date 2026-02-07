@@ -16,7 +16,6 @@ This project demonstrates how to build a lightweight, readable, and reliable sen
 - No external Python dependencies (no Flask, no FastAPI)
 - Read-only web interface: the dashboard only displays sensor data and does not allow any remote control or actuation.
 
-
 ---
 
 ## Hardware
@@ -34,6 +33,11 @@ This project demonstrates how to build a lightweight, readable, and reliable sen
 - Arduino App Lab (UNO Q)
 - WebUI brick (HTML)
 - Arduino library: Arduino_Modulino (current version, e.g. 0.7.0)
+
+## Notes on libraries
+
+With recent versions of **Arduino_Modulino** (e.g. **0.7.0**), installing this single library is usually enough.
+Older setups often required extra dependency libraries, but this is no longer necessary in the current Modulino library releases.
 
 ---
 
@@ -90,7 +94,7 @@ The dashboard refreshes automatically every second.
 ## Notes
 
 - Presence detection is based on a configurable distance threshold (default: 80 cm).
-- The application is intended for local use or temporary external access.
+- The application is intended for local use or external access.
 - No write or control endpoints are exposed.
 - No sensitive system information is accessible through the web interface.
 
