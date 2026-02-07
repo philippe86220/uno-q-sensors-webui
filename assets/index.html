@@ -1,1 +1,60 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UNO Q - Capteurs</title>
+<style>
+  body { font-family: system-ui, -apple-system, Arial, sans-serif; padding: 16px; }
+  .box { border: 1px solid #ddd; border-radius: 12px; padding: 12px; max-width: 560px; }
+  .row { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px dashed #eee; }
+  .row:last-child { border-bottom: none; }
+  .k { color: #555; }
+  .v { font-weight: 700; }
+</style>
+</head>
+<body>
+  <h2>UNO Q - Etat en temps reel</h2>
 
+  <div class="box">
+    <div class="row"><span class="k">Date / heure</span><span class="v" id="now">-</span></div>
+    <div class="row"><span class="k">Derniere presence</span><span class="v" id="presence">-</span></div>
+    <div class="row"><span class="k">Temperature</span><span class="v" id="temp">-</span></div>
+    <div class="row"><span class="k">Humidite</span><span class="v" id="hum">-</span></div>
+    <div class="row"><span class="k">Lumiere</span><span class="v" id="lux">-</span></div>
+  </div>
+
+<script>
+function fmtPresence(t, mm) {
+  if (!t) return "-";
+  if (mm === null || mm === undefined) return t;
+  return t + " (" + mm + " mm)";
+}
+
+async function refresh() {
+  try {
+    const r = await fetch("/api/state", { cache: "no-store" });
+    const s = await r.json();
+
+    document.getElementById("now").textContent = s.now || "-";
+    document.getElementById("presence").textContent =
+      fmtPresence(s.last_presence_time, s.last_presence_mm);
+
+    document.getElementById("temp").textContent =
+      (s.temp == null) ? "-" : (s.temp.toFixed(2) + " C");
+
+    document.getElementById("hum").textContent =
+      (s.hum == null) ? "-" : (s.hum.toFixed(2) + " %");
+
+    document.getElementById("lux").textContent =
+      (s.lux == null) ? "-" : (s.lux + " lux");
+  } catch (e) {
+    // ignore
+  }
+}
+
+refresh();
+setInterval(refresh, 1000);
+</script>
+</body>
+</html>
