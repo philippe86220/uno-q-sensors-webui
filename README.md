@@ -14,7 +14,8 @@ This project demonstrates how to build a lightweight, readable, and reliable sen
 - Web dashboard refreshed every second
 - Uses the official Arduino WebUI brick
 - No external Python dependencies (no Flask, no FastAPI)
-- Read-only web access (no remote control)
+- Read-only web interface: the dashboard only displays sensor data and does not allow any remote control or actuation.
+
 
 ---
 
