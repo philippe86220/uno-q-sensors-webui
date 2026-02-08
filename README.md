@@ -62,6 +62,13 @@ STM32 (sensors)
 Arduino App Lab uses a fixed project structure with separate folders
 for the STM32 sketch, the Python application, and WebUI assets.
 
+### Installation (recommended)
+
+This application can be installed by importing the provided ZIP file
+into Arduino App Lab.
+
+### Manual installation (alternative)
+
 1. In Arduino App Lab, open **Sketch Libraries** and install the
    **Arduino_Modulino** library (current version, e.g. 0.7.0).
 2. Copy the content of `sketch/sketch.ino` from the repository
@@ -74,6 +81,8 @@ for the STM32 sketch, the Python application, and WebUI assets.
    into the App Lab `assets/index.html` file.
 7. Make sure the **WebUI – HTML** brick is added to the project.
 8. Click **Run** in Arduino App Lab.
+
+
 
 Arduino App Lab handles the internal compilation, deployment, and startup
 of the STM32 sketch, the Python application, the libraries, and the WebUI automatically.
@@ -104,9 +113,6 @@ The dashboard refreshes automatically every second.
 - The application is intended for local use or external access.
 - No write or control endpoints are exposed.
 - No sensitive system information is accessible through the web interface.
-
-**This repository is not provided as an App Lab–importable ZIP.**
-**The files are intended to be copied into a manually created Arduino App Lab project.**
 
 ---
 
