@@ -45,6 +45,21 @@ Older setups often required extra dependency libraries, but this is no longer ne
 
 Dependency handling may also vary depending on the Arduino App Lab version used.
 
+---
+
+## Important note
+
+Depending on the system configuration, either App Lab import works
+or Modulino sensors work, but not both at the same time.
+See the discussion below for details.
+
+## Discussion and Support
+
+This project is discussed on the Arduino Forum.  
+For more details and context about setup, troubleshooting, and known issues, see:
+
+🔗 https://forum.arduino.cc/t/uno-q-modulino-sensors-dashboard-using-app-lab-bridge-and-webui/1429584
+
 
 ---
 
