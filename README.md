@@ -47,22 +47,6 @@ Dependency handling may also vary depending on the Arduino App Lab version used.
 
 ---
 
-## Important note
-
-Depending on the system configuration, either App Lab import works
-or Modulino sensors work, but not both at the same time.
-See the discussion below for details.
-
-## Discussion and Support
-
-This project is discussed on the Arduino Forum.  
-For more details and context about setup, troubleshooting, and known issues, see:
-
-🔗 https://forum.arduino.cc/t/uno-q-modulino-sensors-dashboard-using-app-lab-bridge-and-webui/1429584
-
-
----
-
 ## Software Architecture
 
 STM32 (sensors)
@@ -77,27 +61,12 @@ STM32 (sensors)
 Arduino App Lab uses a fixed project structure with separate folders
 for the STM32 sketch, the Python application, and WebUI assets.
 
-### Installation (recommended)
+### Installation 
 
 This application can be installed by importing the provided ZIP file
 into Arduino App Lab.
 
-### Manual installation (alternative)
-
-1. In Arduino App Lab, open **Sketch Libraries** and install the
-   **Arduino_Modulino** library (current version, e.g. 0.7.0).
-2. Copy the content of `sketch/sketch.ino` from the repository
-   into the App Lab sketch file.
-3. Copy the content of `python/main.py` from the repository
-   into the App Lab Python file.
-4. Create an `assets/` directory in the App Lab file tree.
-5. Create a new file named `index.html` inside the `assets/` directory.
-6. Copy the content of `assets/index.html` from the repository
-   into the App Lab `assets/index.html` file.
-7. Make sure the **WebUI – HTML** brick is added to the project.
-8. Click **Run** in Arduino App Lab.
-
-
+- Click **Run** in Arduino App Lab.
 
 Arduino App Lab handles the internal compilation, deployment, and startup
 of the STM32 sketch, the Python application, the libraries, and the WebUI automatically.
