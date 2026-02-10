@@ -20,7 +20,7 @@ void setup() {
   thermo.begin();
   distance.begin();
 
-  delay(5000); // laisser Python demarrer
+  //delay(5000); // laisser Python demarrer
 }
 
 void loop() {
