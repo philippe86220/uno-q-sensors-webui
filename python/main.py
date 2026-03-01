@@ -5,14 +5,14 @@ from arduino.app_bricks.web_ui import WebUI
 
 print("Python ready", flush=True)
 
-web = WebUI()  # Serves ./assets/index.html automatically
+web = WebUI()
 
 _lock = threading.Lock()
 _state = {
     "lux": None,
     "temp": None,
     "hum": None,
-    "last_presence_utc": None,
+    "last_presence_utc": None,   # ISO UTC string
     "last_presence_mm": None,
 }
 
@@ -28,7 +28,7 @@ def update_sensors(lux, temp, hum):
 
 def presence_mm(mm):
     with _lock:
-        _state["last_presence_utc"] = now_str()
+        _state["last_presence_utc"] = now_utc_iso()
         _state["last_presence_mm"] = int(mm)
     return True
 
@@ -38,7 +38,7 @@ Bridge.provide("presence_mm", presence_mm)
 def api_state(_req=None):
     with _lock:
         payload = {
-            "now_utc": now_str(),
+            "now_utc": now_utc_iso(),
             "lux": _state["lux"],
             "temp": _state["temp"],
             "hum": _state["hum"],
@@ -47,7 +47,6 @@ def api_state(_req=None):
         }
     return payload
 
-# Expose JSON endpoint
 web.expose_api("GET", "/api/state", api_state)
 
-App.run()  # blocks
+App.run()
