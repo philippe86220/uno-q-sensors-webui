@@ -25,8 +25,23 @@
   </div>
 
 <script>
-function fmtPresence(t, mm) {
-  if (!t) return "-";
+function fmtLocalFromUtcIso(isoUtc) {
+  if (!isoUtc) return "-";
+  const d = new Date(isoUtc);
+  if (isNaN(d.getTime())) return isoUtc; // fallback
+  return d.toLocaleString(undefined, {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
+}
+
+function fmtPresence(utcIso, mm) {
+  const t = fmtLocalFromUtcIso(utcIso);
+  if (t === "-") return "-";
   if (mm === null || mm === undefined) return t;
   return t + " (" + mm + " mm)";
 }
@@ -36,9 +51,11 @@ async function refresh() {
     const r = await fetch("/api/state", { cache: "no-store" });
     const s = await r.json();
 
-    document.getElementById("now").textContent = s.now || "-";
+    document.getElementById("now").textContent =
+      fmtLocalFromUtcIso(s.now_utc);
+
     document.getElementById("presence").textContent =
-      fmtPresence(s.last_presence_time, s.last_presence_mm);
+      fmtPresence(s.last_presence_utc, s.last_presence_mm);
 
     document.getElementById("temp").textContent =
       (s.temp == null) ? "-" : (s.temp.toFixed(2) + " C");
